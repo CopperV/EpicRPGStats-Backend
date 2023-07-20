@@ -12,7 +12,9 @@ public interface PlayerRepository {
 
 	public List<Player> findAll();
 	public Page<Player> findAll(Pageable page);
+	
 	public Optional<Player> findById(int id);
 	public Optional<Player> findByUid(String uid);
+	public Optional<Player> findByNick(String nick);
 
 }

@@ -1,6 +1,7 @@
 package me.Vark123.Archolos.EpicRPGStats.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +24,18 @@ public class PlayerService {
 	
 	public Page<Player> getPagedPlayers(Pageable page){
 		return repo.findAll(page);
+	}
+	
+	public Optional<Player> getPlayerById(int id) {
+		return repo.findById(id);
+	}
+	
+	public Optional<Player> getPlayerByUID(String uid) {
+		return repo.findByUid(uid);
+	}
+	
+	public Optional<Player> getPlayerByNick(String nick) {
+		return repo.findByNick(nick);
 	}
 	
 }
