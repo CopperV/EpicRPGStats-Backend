@@ -12,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import me.Vark123.Archolos.EpicRPGStats.Model.Detail.DetailPlayer;
 
 @Entity
 @Table(name = "player_stats")
@@ -25,7 +26,7 @@ public class PlayerStats {
 	@JsonBackReference
 	@JoinColumn(name = "player_id")
 	@OneToOne(fetch = FetchType.LAZY)
-	private Player player;
+	private DetailPlayer player;
 	
 	private String ranga;
 	private String klasa;
@@ -66,6 +67,10 @@ public class PlayerStats {
 	private int potionMana;
 	@Column(name = "potion_walka")
 	private int potionWalka;
+	@Column(name = "potion_dmg")
+	private int potionObrazenia;
+	@Column(name = "potion_def")
+	private int potionOchrona;
 	
 	@Column(name = "p_krag")
 	private int krag;
@@ -79,4 +84,6 @@ public class PlayerStats {
 
 	@Column(name = "p_event")
 	private int event;
+	@Column(name = "p_event2")
+	private int event2;
 }

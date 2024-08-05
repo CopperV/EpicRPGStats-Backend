@@ -12,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import me.Vark123.Archolos.EpicRPGStats.Model.Detail.DetailPlayer;
 
 @Entity
 @Table(name = "player_skills")
@@ -25,7 +26,7 @@ public class PlayerSkills {
 	@JsonBackReference
 	@JoinColumn(name = "player_id")
 	@OneToOne(fetch = FetchType.LAZY)
-	private Player player;
+	private DetailPlayer player;
 	
 	@Column(name = "manareg")
 	private boolean manaRegeneration;

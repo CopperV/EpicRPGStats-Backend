@@ -1,4 +1,4 @@
-package me.Vark123.Archolos.EpicRPGStats.Model;
+package me.Vark123.Archolos.EpicRPGStats.Model.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -12,11 +12,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import me.Vark123.Archolos.EpicRPGStats.Model.PlayerStats;
 
 @Entity
 @Table(name = "players")
 @Getter
-public class Player {
+public class ListPlayer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,38 +26,6 @@ public class Player {
 	@Column(name = "UUID")
 	private String uid;
 	private String nick;
-	
-	@JsonManagedReference
-	@OneToOne(
-			mappedBy = "player",
-			cascade = CascadeType.ALL,
-			orphanRemoval = true,
-			fetch=FetchType.LAZY)
-	private PlayerInfo info;
-
-	@JsonManagedReference
-	@OneToOne(
-			mappedBy = "player",
-			cascade = CascadeType.ALL,
-			orphanRemoval = true,
-			fetch=FetchType.LAZY)
-	private PlayerReputation rep;
-
-	@JsonManagedReference
-	@OneToOne(
-			mappedBy = "player",
-			cascade = CascadeType.ALL,
-			orphanRemoval = true,
-			fetch=FetchType.LAZY)
-	private PlayerRzemioslo rzemioslo;
-
-	@JsonManagedReference
-	@OneToOne(
-			mappedBy = "player",
-			cascade = CascadeType.ALL,
-			orphanRemoval = true,
-			fetch=FetchType.LAZY)
-	private PlayerSkills skills;
 
 	@JsonManagedReference
 	@OneToOne(
